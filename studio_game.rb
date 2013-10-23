@@ -9,4 +9,5 @@ knucklheads = Game.new("knucklheads")
 knucklheads.add_player(player1)
 knucklheads.add_player(player2)
 knucklheads.add_player(player3)
-knucklheads.play
+knucklheads.play(3)
+knucklheads.print_stats
