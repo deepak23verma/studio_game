@@ -40,10 +40,16 @@ class Game
     puts "#{player.name} (#{player.health})"
   end
 
+  def total_points
+    @players.each.reduce(0) { |sum, player| sum = sum + player.points}
+  end
+
   def print_stats
     strong_players, wimpy_players = @players.partition { |player| player.strong? }
 
     puts "\n#{@title} Statistics:"
+
+    puts "\n#{total_points} total points from treasures found"
 
     puts "\n#{strong_players.count} strong players:"
     strong_players.each {|player| print_name_and_health(player)}
@@ -57,6 +63,11 @@ class Game
     @players.sort.each do |player| 
       formatted_name = player.name.ljust(20, ".")
       puts "#{formatted_name} #{player.score}"
+    end
+
+    @players.each do |player|
+      puts "\n#{player.name}'s point totals:"
+      puts "#{player.points} grand total points"
     end
   end
 
