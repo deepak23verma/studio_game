@@ -9,5 +9,19 @@ knucklheads = Game.new("knucklheads")
 knucklheads.add_player(player1)
 knucklheads.add_player(player2)
 knucklheads.add_player(player3)
-knucklheads.play(3)
-knucklheads.print_stats
+# knucklheads.play(3)
+# knucklheads.print_stats
+
+loop do
+  puts "\nHow many game rounds? ('quit' to exit)"
+  answer = gets.chomp.downcase
+  case answer
+  when /^\d+$/
+    knucklheads.play(answer.to_i)
+  when "quit", "exit"
+    knucklheads.print_stats
+    break
+  else
+    puts "Please enter a number or 'quit'"
+  end
+end
