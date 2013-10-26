@@ -21,7 +21,7 @@ class Game
     end
   end
 
-  def save_high_scores(to_file="high_scores.txt")
+  def save_high_scores(to_file="high_scores.csv")
     File.open(to_file, "w") do |file|
       file.puts "#{@title} High Scores:"
       @players.sort.each do |player| 
