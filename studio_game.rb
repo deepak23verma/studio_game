@@ -7,6 +7,8 @@ require_relative 'game'
 # player4 = Player.new("shemp", 90)
 knucklheads = Game.new("knucklheads")
 knucklheads.load_players(ARGV.shift || "players.csv")
+klutz = ClumsyPlayer.new('klutz', 105)
+knucklheads.add_player(klutz)
 # knucklheads.add_player(player1)
 # knucklheads.add_player(player2)
 # knucklheads.add_player(player3)
