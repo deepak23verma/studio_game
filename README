@@ -1,0 +1,6 @@
+This game is the result of the Pragmatic Studio Ruby tutorial. The game is 
+designed to read in any number of players from a csv file with a starting
+health value (default is 100) then go on a multiple round treasure hunt to
+accumulate points. The number of rounds are defined by the user. The final
+high scores out sorted in descending order and outputted to the terminal and
+a csv file called high_scores.csv

@@ -1,0 +1,27 @@
+#!/user/bin/env ruby
+
+require_relative '../lib/deepak_studio_game/game'
+
+
+knucklheads = DeepakStudioGame::Game.new("knucklheads")
+default_player_file = File.join(File.dirname(__FILE__), 'players.csv')
+knucklheads.load_players(ARGV.shift || default_player_file)
+klutz = DeepakStudioGame::ClumsyPlayer.new('klutz', 105)
+berseker = DeepakStudioGame::BerserkPlayer.new('berseker', 50)
+knucklheads.add_player(klutz)
+knucklheads.add_player(berseker)
+
+loop do
+  puts "\nHow many game rounds? ('quit' to exit)"
+  answer = gets.chomp.downcase
+  case answer
+  when /^\d+$/
+    knucklheads.play(answer.to_i)
+  when "quit", "exit", "q"
+    knucklheads.print_stats
+    knucklheads.save_high_scores
+    break
+  else
+    puts "Please enter a number or 'quit'"
+  end
+end
